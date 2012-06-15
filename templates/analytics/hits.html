@@ -1,0 +1,5 @@
+Date,       Hits
+{% for row in rows %}
+{# for date formatting guide refer to   https://docs.djangoproject.com/en/dev/ref/templates/builtins/#date     #}
+{{ row.date|date:'d M' }},      {{ row.hits }}
+{% endfor %}

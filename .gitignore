@@ -1,0 +1,14 @@
+.DS_Store
+_Store
+.idea
+*.pyc
+/bin/
+/include/
+/lib/
+*._*
+/media/*
+/static/*
+/configuration/*
+.sublime-project
+.sublime-workspace
+*.sql
