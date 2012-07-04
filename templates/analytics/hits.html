@@ -1,5 +1,5 @@
-Date,       Hits
+Date{% if use_tabs %}         {% else %},{% endif %}Hits
 {% for row in rows %}
 {# for date formatting guide refer to   https://docs.djangoproject.com/en/dev/ref/templates/builtins/#date     #}
-{{ row.date|date:'d M' }},      {{ row.hits }}
+{{ row.date|date:'d/m/y' }}{% if use_tabs %}         {% else %},{% endif %}{{ row.hits }}
 {% endfor %}
