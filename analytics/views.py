@@ -14,6 +14,9 @@ from apachelog.models import Log
 local_utcoffset = timedelta(hours=0)
 
 def hits_per_interval(request, days=1):
+	"""
+	hits per day to facebook.html or
+	"""
 	context = {}
 	rows = []
 	logs = Log.objects.order_by('time').all()
@@ -26,6 +29,10 @@ def hits_per_interval(request, days=1):
 	for from_date,to_date in pair_inter(dates):
 		count = Log.objects.filter(
 			Q(time__gte=from_date) & Q(time__lt=to_date)
+			&
+			(
+				Q(request__startswith='GET /facebook.htm') | Q(request__startswith='GET /fb.htm')
+			)
 		).count()
 		row= Object()
 		row.date = from_date
